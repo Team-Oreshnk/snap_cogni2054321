@@ -495,3 +495,15 @@ footer img {
     .lander:has(.t7:hover) { --move-img-x: -8px; --move-img-y: 8px;  --move-box-x: 12px; --move-box-y: -12px; }
     .lander:has(.t8:hover) { --move-img-x: 0px;  --move-img-y: 8px;  --move-box-x: 0px;  --move-box-y: -12px; }
     .lander:has(.t9:hover) { --move-img-x: 8px;  --move-img-y: 8px;  --move-box-x: -12px; --move-box-y: -12px; }
+    .sublinks {
+         position: absolute;
+    width:400px;
+    height: 100px;
+    left: 50%;  
+bottom: 80px;
+    transform: translateX(-50%);
+display: flex;
+align-items: center;
+justify-content: space-around;
+z-index: 99;
+    }
