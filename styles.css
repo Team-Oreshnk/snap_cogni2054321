@@ -2,6 +2,10 @@
     :root {
         --brandColor: #893838;
         --blueColor: #006aff;
+                --move-img-x: 0px;
+        --move-img-y: 0px;
+        --move-box-x: 0px;
+        --move-box-y: 0px;
     }
     html, body {
         margin: 0;
@@ -72,115 +76,115 @@
         position: relative;
     }
     /* lander */
-    .lander {
-        width: 100%;
-        height: 100vh;    overflow: hidden;
-        position: relative;
+        .lander {
+            width: 100%;
+            height: 100vh;    overflow: hidden;
+            position: relative;
+        }
+        .firstImage {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
     }
-     .firstImage {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 1;
-   }
-         .topCover,
-         .topcover {
-    width: 300px;
-    height: 500px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-70%,-50%);
-    z-index: 2;
-    border: 6px solid var(--brandColor);
-    background: linear-gradient(to right, white 50%, rgba(0,0,0,0) 50%);
+            .topCover,
+            .topcover {
+        width: 300px;
+        height: 500px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-70%,-50%);
+        z-index: 2;
+        border: 6px solid var(--brandColor);
+        background: linear-gradient(to right, white 50%, rgba(0,0,0,0) 50%);
 
-    animation-delay: 0.5s;
+        animation-delay: 0.5s;
+        }
+        @keyframes borderCreation {
+            0% {
+                border-width: 0;
+                border-style: solid;
+                border-color: var(--blueColor);
+            }
+            40% {
+                border-width: 0 0 6px 0;
+                border-style: solid;
+                border-color: var(--blueColor);
+            }
+            70% {
+                border-width: 0 0 6px 6px;
+                border-style: solid;
+                border-color: var(--blueColor);
+            }
+            85% {
+                border-width: 6px 0 6px 6px;
+                border-style: solid;
+                border-color: var(--blueColor);
+            }
+            100% {
+                border-width: 6px;
+                border-style: solid;
+                border-color: var(--blueColor);
+            }
+        }
+        .topCover .landerLogo,
+        .topcover .landerLogo {
+
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        letter-spacing: 1.2rem;
+        transition: left 2s ease;
     }
-    @keyframes borderCreation {
+
+    .lander:hover .topCover,
+    .lander:hover .topcover {
+        animation: orbitCover 8s linear forwards;
+    }
+
+    .lander:hover .firstImage {
+        animation: orbitImage 12s linear infinite;
+    }
+    .lander:hover .landerLogo {
+        animation: topAnimation 4s linear infinite;
+    }
+    @keyframes orbitCover {
         0% {
-            border-width: 0;
-            border-style: solid;
-            border-color: var(--blueColor);
+            transform: translate(-70%, -50%);
         }
-        40% {
-            border-width: 0 0 6px 0;
-            border-style: solid;
-            border-color: var(--blueColor);
-        }
-        70% {
-            border-width: 0 0 6px 6px;
-            border-style: solid;
-            border-color: var(--blueColor);
-        }
-        85% {
-            border-width: 6px 0 6px 6px;
-            border-style: solid;
-            border-color: var(--blueColor);
-        }
+            25% {
+                transform: translate(-50%, -50%);
+            }
         100% {
-            border-width: 6px;
-            border-style: solid;
-            border-color: var(--blueColor);
-        }
-    }
-    .topCover .landerLogo,
-    .topcover .landerLogo {
-
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    letter-spacing: 1.2rem;
-    transition: left 2s ease;
-   }
-
-.lander:hover .topCover,
-.lander:hover .topcover {
-    animation: orbitCover 8s linear forwards;
-}
-
-.lander:hover .firstImage {
-    animation: orbitImage 12s linear infinite;
-}
-.lander:hover .landerLogo {
-    animation: topAnimation 4s linear infinite;
-}
-@keyframes orbitCover {
-    0% {
-        transform: translate(-70%, -50%);
-    }
-        25% {
             transform: translate(-50%, -50%);
         }
-    100% {
-        transform: translate(-50%, -50%);
     }
-}
-@keyframes orbitCover {
-    0% {
-        transform: translate(-70%, -50%);
-    }
-        25% {
+    @keyframes orbitCover {
+        0% {
+            transform: translate(-70%, -50%);
+        }
+            25% {
+                transform: translate(-50%, -50%);
+            }
+        100% {
             transform: translate(-50%, -50%);
         }
-    100% {
-        transform: translate(-50%, -50%);
     }
-}
-@keyframes topAnimation {
-    0% {
-       top: 50%;
-    }
+    @keyframes topAnimation {
+        0% {
+        top: 50%;
+        }
 
-    100% {
-        top: 0;
+        100% {
+            top: 0;
+        }
     }
-}
 
 @media (prefers-reduced-motion: reduce) {
     .lander:hover .topCover,
@@ -435,3 +439,59 @@ footer img {
             text-transform: uppercase;
             letter-spacing: 0.8rem;
         }
+
+
+
+    .lander {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        background: #fff;
+    }
+
+    .firstImage {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(calc(-50% + var(--move-img-x)), calc(-50% + var(--move-img-y)));
+        z-index: 1;
+        transition: transform 1.2s cubic-bezier(0.1, 0.5, 0.2, 1);
+        pointer-events: none;
+    }
+
+    .topcover {
+        width: 300px;
+        height: 500px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(calc(-70% + var(--move-box-x)), calc(-50% + var(--move-box-y)));
+        z-index: 2;
+        border: 6px solid var(--brandColor);
+        background: linear-gradient(to right, white 50%, rgba(0,0,0,0) 50%);
+        transition: transform 0.8s cubic-bezier(0.1, 0.5, 0.2, 1);
+        pointer-events: none;
+    }
+
+
+    .trigger {
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+    }
+
+    .lander:has(.t1:hover) { --move-img-x: -8px; --move-img-y: -8px; --move-box-x: 12px; --move-box-y: 12px; }
+    .lander:has(.t2:hover) { --move-img-x: 0px;  --move-img-y: -8px; --move-box-x: 0px;  --move-box-y: 12px; }
+    .lander:has(.t3:hover) { --move-img-x: 8px;  --move-img-y: -8px; --move-box-x: -12px; --move-box-y: 12px; }
+    .lander:has(.t4:hover) { --move-img-x: -8px; --move-img-y: 0px;  --move-box-x: 12px; --move-box-y: 0px; }
+    .lander:has(.t5:hover) { --move-img-x: 0px;  --move-img-y: 0px;  --move-box-x: 0px;  --move-box-y: 0px; }
+    .lander:has(.t6:hover) { --move-img-x: 8px;  --move-img-y: 0px;  --move-box-x: -12px; --move-box-y: 0px; }
+    .lander:has(.t7:hover) { --move-img-x: -8px; --move-img-y: 8px;  --move-box-x: 12px; --move-box-y: -12px; }
+    .lander:has(.t8:hover) { --move-img-x: 0px;  --move-img-y: 8px;  --move-box-x: 0px;  --move-box-y: -12px; }
+    .lander:has(.t9:hover) { --move-img-x: 8px;  --move-img-y: 8px;  --move-box-x: -12px; --move-box-y: -12px; }
