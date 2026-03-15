@@ -1,7 +1,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
     :root {
         --brandColor: #893838;
-        --blueColor: #006aff;
+        --blueColor: #003681;
                 --move-img-x: 0px;
         --move-img-y: 0px;
         --move-box-x: 0px;
@@ -92,14 +92,14 @@
     }
             .topCover,
             .topcover {
-        width: 300px;
-        height: 500px;
+        width: 270px;
+        height: 300px;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-70%,-50%);
         z-index: 2;
-        border: 6px solid var(--brandColor);
+        border: 12px solid var(--brandColor);
         background: linear-gradient(to right, white 50%, rgba(0,0,0,0) 50%);
 
         animation-delay: 0.5s;
@@ -320,28 +320,32 @@ footer {
     width:100%;
     height:100vh;
     position: relative;
+    overflow: hidden;
 
 }
 .fadeInSection img {
     width: 100%;
     height: 100vh;
     animation: fadeIn 2s ease-in-out;
-    animation-timeline: view();
-    padding: 40px 0;
     position: absolute;
+    object-fit: cover;
 }
 .fadeInSection .topCover {
     border-color: var(--blueColor);
     background: transparent;    animation: borderCreation 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-timeline: view();
+    transform: translate(-50%,-50%);
+    
+
 }
 @keyframes fadeIn {
     0% {
+        transform: scale(1.9);
         opacity: 0;
         -webkit-filter: blur(5px);
     
     }
     75% {
+        transform: scale(1);
         opacity: 1;
         -webkit-filter: blur(0px);
     }
@@ -466,14 +470,14 @@ footer img {
     }
 
     .topcover {
-        width: 300px;
-        height: 500px;
+        width: 270px;
+        height: 400px;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(calc(-70% + var(--move-box-x)), calc(-50% + var(--move-box-y)));
         z-index: 2;
-        border: 6px solid var(--brandColor);
+        border: 10px solid var(--brandColor);
         background: linear-gradient(to right, white 50%, rgba(0,0,0,0) 50%);
         transition: transform 0.8s cubic-bezier(0.1, 0.5, 0.2, 1);
         pointer-events: none;
